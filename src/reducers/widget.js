@@ -1,6 +1,6 @@
 import {WIDGET_REQUEST_SUCCESS} from '../actions'
 
-const initialState = []
+const initialState = {}
 
 export default (state = initialState, {payload, type}) => {
   switch (type) {
