@@ -8,6 +8,7 @@ import {getWidget} from './api'
 
 export function* fetchWidget(action) {
   try {
+    // const someState = yield select(aStateSelector)
     const widget = yield call(getWidget, action.payload)
     yield put(widgetRequestSuccess(widget))
   } catch (e) {
@@ -16,9 +17,8 @@ export function* fetchWidget(action) {
 }
 
 function* watchWidgetRequest() {
-  // const id = yield select(widgetIdSelector)
-  // yield takeLatest(WIDGET_REQUEST, fetchWidget)
   yield takeEvery(WIDGET_REQUEST, fetchWidget)
+  // yield takeLatest(WIDGET_REQUEST, fetchWidget)
 }
 
 export default watchWidgetRequest
